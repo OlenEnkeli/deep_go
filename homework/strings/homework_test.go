@@ -45,6 +45,7 @@ func (b *COWBuffer) Close() {
 	}
 
 	*b.refs -= 1
+	b.data = nil
 	runtime.SetFinalizer(b, nil)
 }
 
